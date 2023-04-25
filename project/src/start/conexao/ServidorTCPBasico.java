@@ -1,5 +1,11 @@
 package start.conexao;
 
+import java.net.Socket;
+import java.net.ServerSocket;
+import java.io.ObjectOutputStream;
+import java.util.Date;
+
+
 public class ServidorTCPBasico {
     public static void main(String[] args) {
         try {
@@ -21,6 +27,6 @@ public class ServidorTCPBasico {
         catch(Exception e) {
            System.out.println("Erro: " + e.getMessage());
         }
-        finally {...}
+        // finally {...}
       }
 }

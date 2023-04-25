@@ -1,5 +1,10 @@
 package start.conexao;
 
+import java.net.Socket;
+import java.io.ObjectInputStream;
+import java.util.Date;
+import javax.swing.JOptionPane;
+
 public class ClienteTCPBasico {
     public static void main(String[] args) {
         try {
