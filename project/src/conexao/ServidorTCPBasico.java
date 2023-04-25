@@ -1,10 +1,9 @@
-package start.conexao;
+package conexao;
 
 import java.net.Socket;
 import java.net.ServerSocket;
 import java.io.ObjectOutputStream;
 import java.util.Date;
-
 
 public class ServidorTCPBasico {
     public static void main(String[] args) {
