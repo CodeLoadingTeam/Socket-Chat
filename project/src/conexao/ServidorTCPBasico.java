@@ -10,10 +10,12 @@ import java.net.*;
 
 public class ServidorTCPBasico {
     public static void main(String[] args) {
+        
         try {
             // Instancia o ServerSocket ouvindo a porta 12345
             ServerSocket servidor = new ServerSocket(12345);
             System.out.println("Servidor ouvindo a porta 12345");
+            
             while(true) {
                 // o método accept() bloqueia a execução até que
                 // o servidor receba um pedido de conexão
@@ -23,6 +25,7 @@ public class ServidorTCPBasico {
                 String mensagemCliente = br.readLine();
                 System.out.println("Mensagem recebida do cliente: " + mensagemCliente);
                 System.out.println("Cliente conectado: " + cliente.getInetAddress().getHostAddress());
+                System.out.println("\n");
                 ObjectOutputStream saida = new ObjectOutputStream(cliente.getOutputStream());
                 saida.flush();
                 saida.writeObject(new Date(0));
