@@ -6,7 +6,6 @@ import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.sql.Date;
-import java.net.*;
 
 public class ServidorTCPBasico {
     public static void main(String[] args) {
@@ -29,11 +28,9 @@ public class ServidorTCPBasico {
                 ObjectOutputStream saida = new ObjectOutputStream(cliente.getOutputStream());
                 saida.flush();
                 saida.writeObject(new Date(0));
-
-            }
-        }
-
-        catch(Exception e) {
+            } 
+                       
+        } catch (Exception e) {
             System.out.println("Erro: " + e.getMessage());
         }
     }
