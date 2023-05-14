@@ -6,9 +6,11 @@ import java.net.Socket;
 
 public class ClienteThread extends Thread {
     private Socket socket;
+    private Tela tela;
 
-    public ClienteThread(Socket socket) {
+    public ClienteThread(Socket socket, Tela tela) {
         this.socket = socket;
+        this.tela = tela;
     }
 
     @Override
@@ -17,11 +19,13 @@ public class ClienteThread extends Thread {
         try {
             InputStreamReader inputReader = new InputStreamReader(socket.getInputStream());
             BufferedReader reader = new BufferedReader(inputReader);
-            String serverMessage;
+            String mensagemServidor;
 
-            while ((serverMessage = reader.readLine()) != null) {
-                System.out.println("(" + serverMessage + ")");
-                System.out.println();
+            while ((mensagemServidor = reader.readLine()) != null) {
+
+                tela.chat.setText(
+                    tela.chat.getText() + '\n' + mensagemServidor
+                );
             }
 
         } catch (Exception e) {
