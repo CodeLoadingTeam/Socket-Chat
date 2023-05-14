@@ -5,12 +5,14 @@ import java.io.InputStreamReader;
 import java.net.Socket;
 
 public class ClienteThread extends Thread {
+
     private Socket socket;
     private Tela tela;
 
-    public ClienteThread(Socket socket, Tela tela) {
-        this.socket = socket;
-        this.tela = tela;
+    public ClienteThread(Tela tela) {
+
+        this.tela   = tela;
+        this.socket = tela.socket;
     }
 
     @Override
@@ -19,12 +21,14 @@ public class ClienteThread extends Thread {
         try {
             InputStreamReader inputReader = new InputStreamReader(socket.getInputStream());
             BufferedReader reader = new BufferedReader(inputReader);
-            String mensagemServidor;
+            String novaMensagemServidor;
+            String mensagemAntiga;
 
-            while ((mensagemServidor = reader.readLine()) != null) {
-
+            while ((novaMensagemServidor = reader.readLine()) != null) {
+                
+                mensagemAntiga = tela.chat.getText();
                 tela.chat.setText(
-                    tela.chat.getText() + '\n' + mensagemServidor
+                    mensagemAntiga + '\n' + novaMensagemServidor
                 );
             }
 

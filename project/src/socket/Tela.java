@@ -1,9 +1,14 @@
 package socket;
 import java.awt.Color;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintStream;
+import java.net.Socket;
+
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -12,12 +17,13 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class Tela {
+public class Tela implements ActionListener {
 
+	public Socket socket;
 	public BufferedImage img;
 	public Image dimg;
 	public ImageIcon imageIcon;
-	public JFrame janela         = new JFrame("Chat: Cliente - Servidor");
+	public JFrame janela;
 	public JTextArea chat        = new JTextArea();
 	public JButton bt01          = new JButton("Enviar");
 	public JLabel text           = new JLabel();
@@ -30,11 +36,11 @@ public class Tela {
 	public JTextField msgPorta   = new JTextField();
 	public JLabel label          = new JLabel();
 	
-	public Tela() throws IOException {
+	public Tela(Socket socket) throws IOException {
 
-		this.img = ImageIO.read(new File("project/src/imagem/background.jpg"));	
-		this.dimg = img.getScaledInstance(this.janela.getWidth(), this.janela.getHeight(), Image.SCALE_SMOOTH);
-		this.imageIcon = new ImageIcon(this.dimg);
+		this.socket = socket;
+		this.janela = new JFrame("Chat: Cliente - Servidor");
+		this.img    = ImageIO.read(new File("project/src/imagem/background.jpg"));	
 	}
     
     public void inicializar() {
@@ -45,11 +51,13 @@ public class Tela {
 		chat.setSize(430, 300);
 		chat.setBackground(Color.white);
 		chat.setVisible(true);
+		chat.setEditable(false);
 		
 		bt01.setSize(80, 20);
 		bt01.setLocation(420, 370);
 		bt01.setVisible(true);
 		bt01.setBackground(Color.yellow); 	
+		bt01.addActionListener(this);
 		
 		text.setText("Cliente conectados: 1/3");
 		text.setVisible(true);
@@ -83,6 +91,9 @@ public class Tela {
 		
     	janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     	janela.setSize(800, 500);
+
+		dimg      = img.getScaledInstance(janela.getWidth(), janela.getHeight(), Image.SCALE_SMOOTH);
+		imageIcon = new ImageIcon(this.dimg);
 		
     	label.setIcon(imageIcon);
 		
@@ -99,4 +110,19 @@ public class Tela {
     	janela.add(msgPorta);
     	janela.add(label);
     }
+
+	public void actionPerformed(ActionEvent e) {
+
+		if (e.getSource() == bt01) {
+
+			try {
+				PrintStream saida = new PrintStream(this.socket.getOutputStream());
+				saida.println(this.msg.getText());
+				this.msg.setText("");
+
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+		}
+	}
 }

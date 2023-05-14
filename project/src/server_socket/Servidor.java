@@ -16,7 +16,8 @@ public class Servidor {
 
         Socket socket = serverSocket.accept();
         String ip = socket.getInetAddress().getHostAddress();
-        System.out.println("Cliente se conectou (IP: " + ip + ")");
+        int port = socket.getPort();
+        System.out.println("Cliente se conectou (IP: " + ip + ":" + port + ")");
         System.out.println();
 
         InputStreamReader inputReader = new InputStreamReader(socket.getInputStream());
@@ -25,7 +26,7 @@ public class Servidor {
         String mensagemCliente;
 
         while ((mensagemCliente = reader.readLine()) != null) {
-            saida.println("Servidor: " + mensagemCliente);
+            saida.println("(" + ip + "): " + mensagemCliente);
             System.out.println("Mensagem do cliente " + ip + ": " + mensagemCliente);
         }
 
