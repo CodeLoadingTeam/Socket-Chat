@@ -22,11 +22,11 @@ public class Servidor {
         InputStreamReader inputReader = new InputStreamReader(socket.getInputStream());
         BufferedReader reader = new BufferedReader(inputReader);
         PrintStream saida = new PrintStream(socket.getOutputStream());
-        String clientMessage;
+        String mensagemCliente;
 
-        while ((clientMessage = reader.readLine()) != null) {
-            saida.println("Servidor: " + clientMessage);
-            System.out.println("Mensagem do cliente " + ip + ": " + clientMessage);
+        while ((mensagemCliente = reader.readLine()) != null) {
+            saida.println("Servidor: " + mensagemCliente);
+            System.out.println("Mensagem do cliente " + ip + ": " + mensagemCliente);
         }
 
         serverSocket.close();

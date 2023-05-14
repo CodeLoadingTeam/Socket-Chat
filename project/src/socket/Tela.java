@@ -17,18 +17,18 @@ public class Tela {
 	public BufferedImage img;
 	public Image dimg;
 	public ImageIcon imageIcon;
-	public JFrame janela = new JFrame("Chat: Cliente - Servidor");
-	public JTextArea chat = new JTextArea();
-	public JButton bt01 = new JButton("Enviar");
-	public JLabel text = new JLabel();
-	public JTextField msg = new JTextField();
-	public JLabel text2 = new JLabel("IP:");
-	public JTextField msgIP = new JTextField();
-	public JLabel text3 = new JLabel("Usuário:");
+	public JFrame janela         = new JFrame("Chat: Cliente - Servidor");
+	public JTextArea chat        = new JTextArea();
+	public JButton bt01          = new JButton("Enviar");
+	public JLabel text           = new JLabel();
+	public JTextField msg        = new JTextField();
+	public JLabel text2          = new JLabel("IP:");
+	public JTextField msgIP      = new JTextField();
+	public JLabel text3          = new JLabel("Usuário:");
 	public JTextField msgUsuario = new JTextField();
-	public JLabel text4 = new JLabel("Porta:");
-	public JTextField msgPorta = new JTextField();
-	public JLabel label = new JLabel();
+	public JLabel text4          = new JLabel("Porta:");
+	public JTextField msgPorta   = new JTextField();
+	public JLabel label          = new JLabel();
 	
 	public Tela() throws IOException {
 
