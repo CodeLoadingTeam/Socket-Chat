@@ -1,4 +1,4 @@
-package conexao2;
+package server_socket;
 
 import java.io.BufferedReader;
 import java.io.IOException;
