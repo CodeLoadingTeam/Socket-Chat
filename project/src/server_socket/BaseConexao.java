@@ -25,13 +25,13 @@ public class BaseConexao {
             System.out.println();
 
             InputStreamReader inputReader = new InputStreamReader(cliente.getInputStream());
-            BufferedReader    reader      = new BufferedReader(inputReader);
+            BufferedReader    leitor      = new BufferedReader(inputReader);
             PrintStream       saida       = new PrintStream(cliente.getOutputStream());
             String            mensagemCliente;
 
-            while ((mensagemCliente = reader.readLine()) != null) {
+            while ((mensagemCliente = leitor.readLine()) != null) {
                 saida.println("(" + ip + ":" + port + "): " + mensagemCliente);
-                System.out.println("Mensagem do cliente " + ip + ":" + port + ": " + mensagemCliente);
+                System.out.println("Mensagem do cliente (" + ip + ":" + port + "): " + mensagemCliente);
             }
 
             serverSocket.close();

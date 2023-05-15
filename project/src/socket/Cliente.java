@@ -11,7 +11,6 @@ public class Cliente {
         Tela tela = new Tela(cliente);
         tela.inicializar();
 
-        ClienteThread thread = new ClienteThread(tela);
-        thread.start(); 
+        new ClienteThread(tela).start(); 
     }
 }
