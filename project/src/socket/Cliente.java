@@ -7,9 +7,8 @@ public class Cliente {
 
     public static void main(String[] args) throws IOException {
 
-        Socket socket = new Socket("localhost", 4000);
-        Tela tela = new Tela(socket);
-
+        Socket cliente = new Socket("localhost", 4000);
+        Tela tela = new Tela(cliente);
         tela.inicializar();
 
         ClienteThread thread = new ClienteThread(tela);

@@ -6,26 +6,26 @@ import java.net.Socket;
 
 public class ClienteThread extends Thread {
 
-    private Socket socket;
+    private Socket cliente;
     private Tela tela;
 
     public ClienteThread(Tela tela) {
 
-        this.tela   = tela;
-        this.socket = tela.socket;
+        this.tela    = tela;
+        this.cliente = tela.cliente;
     }
 
     @Override
     public void run() {
 
         try {
-            InputStreamReader inputReader = new InputStreamReader(socket.getInputStream());
+            InputStreamReader inputReader = new InputStreamReader(cliente.getInputStream());
             BufferedReader reader = new BufferedReader(inputReader);
             String novaMensagemServidor;
             String mensagemAntiga;
 
             while ((novaMensagemServidor = reader.readLine()) != null) {
-                
+
                 mensagemAntiga = tela.chat.getText();
                 tela.chat.setText(
                     mensagemAntiga + '\n' + novaMensagemServidor

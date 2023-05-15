@@ -19,7 +19,7 @@ import javax.swing.JTextField;
 
 public class Tela implements ActionListener {
 
-	public Socket socket;
+	public Socket cliente;
 	public BufferedImage img;
 	public Image dimg;
 	public ImageIcon imageIcon;
@@ -36,9 +36,9 @@ public class Tela implements ActionListener {
 	public JTextField msgPorta   = new JTextField();
 	public JLabel label          = new JLabel();
 	
-	public Tela(Socket socket) throws IOException {
+	public Tela(Socket cliente) throws IOException {
 
-		this.socket = socket;
+		this.cliente = cliente;
 		this.janela = new JFrame("Chat: Cliente - Servidor");
 		this.img    = ImageIO.read(new File("project/src/imagem/background.jpg"));	
 	}
@@ -116,7 +116,7 @@ public class Tela implements ActionListener {
 		if (e.getSource() == bt01) {
 
 			try {
-				PrintStream saida = new PrintStream(this.socket.getOutputStream());
+				PrintStream saida = new PrintStream(this.cliente.getOutputStream());
 				saida.println(this.msg.getText());
 				this.msg.setText("");
 
