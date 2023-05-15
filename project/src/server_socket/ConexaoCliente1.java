@@ -15,6 +15,6 @@ public class ConexaoCliente1 extends Thread {
     @Override
     public void run() {
 
-        baseConexao.iniciarConexao();
+        baseConexao.inicializar();
     }
 }

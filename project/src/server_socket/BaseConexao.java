@@ -15,7 +15,7 @@ public class BaseConexao {
         this.serverSocket = serverSocket;
     }
 
-    public void iniciarConexao() {
+    public void inicializar() {
 
         try {
             Socket cliente = serverSocket.accept();
