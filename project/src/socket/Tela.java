@@ -39,8 +39,8 @@ public class Tela implements ActionListener {
 	public Tela(Socket cliente) throws IOException {
 
 		this.cliente = cliente;
-		this.janela = new JFrame("Chat: Cliente - Servidor");
-		this.img    = ImageIO.read(new File("project/src/imagem/background.jpg"));	
+		this.janela  = new JFrame("Chat: Cliente - Servidor");
+		this.img     = ImageIO.read(new File("project/src/image/background.jpg"));	
 	}
     
     public void inicializar() {
@@ -97,6 +97,9 @@ public class Tela implements ActionListener {
 		
     	label.setIcon(imageIcon);
 		
+
+		// -=-=-=-=-=-=-
+
     	janela.setVisible(true);
     	janela.add(chat);
     	janela.add(bt01);
@@ -120,9 +123,10 @@ public class Tela implements ActionListener {
 				saida.println(this.msg.getText());
 				this.msg.setText("");
 
-			} catch (IOException e1) {
+			} catch (IOException e1) {	
 				e1.printStackTrace();
 			}
+			
 		}
 	}
 }

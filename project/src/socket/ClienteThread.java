@@ -20,9 +20,9 @@ public class ClienteThread extends Thread {
 
         try {
             InputStreamReader inputReader = new InputStreamReader(cliente.getInputStream());
-            BufferedReader reader = new BufferedReader(inputReader);
-            String novaMensagemServidor;
-            String mensagemAntiga;
+            BufferedReader    reader      = new BufferedReader(inputReader);
+            String            novaMensagemServidor;
+            String            mensagemAntiga;
 
             while ((novaMensagemServidor = reader.readLine()) != null) {
 
@@ -35,5 +35,6 @@ public class ClienteThread extends Thread {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        
     }
 }

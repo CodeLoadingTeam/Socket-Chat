@@ -37,8 +37,8 @@ public class BaseConexao {
             serverSocket.close();
             
         } catch (IOException e) {
-
             e.printStackTrace();
         }
+
     }
 }
