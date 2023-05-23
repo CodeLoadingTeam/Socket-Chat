@@ -7,18 +7,19 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 
-public class BaseConexao {
+public class ConexaoCliente extends Thread {
 
     ServerSocket serverSocket;
 
-    public BaseConexao(ServerSocket serverSocket) throws IOException {
+    public ConexaoCliente(ServerSocket serverSocket) throws IOException {
         this.serverSocket = serverSocket;
     }
 
-    public void inicializar() {
-
+    @Override
+    public void run() {
+        
         try {
-            Socket cliente = serverSocket.accept();
+            Socket cliente   = serverSocket.accept();
             String ip        = cliente.getInetAddress().getHostAddress();
             int    port      = cliente.getPort();
             System.out.println("Cliente se conectou (IP: " + ip + ":" + port + ")");
@@ -39,6 +40,6 @@ public class BaseConexao {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        
     }
 }

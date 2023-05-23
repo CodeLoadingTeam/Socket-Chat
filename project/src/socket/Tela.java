@@ -114,6 +114,10 @@ public class Tela implements ActionListener {
     	janela.add(label);
     }
 
+	public void exibirMensagem(String mensagem) {
+		chat.append("\n" + mensagem);
+	}
+
 	public void actionPerformed(ActionEvent e) {
 
 		if (e.getSource() == bt01) {
