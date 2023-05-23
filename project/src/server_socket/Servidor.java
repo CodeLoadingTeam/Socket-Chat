@@ -1,9 +1,6 @@
 package server_socket;
 
-
 import java.io.IOException;
-
-
 import java.net.ServerSocket;
 
 
@@ -13,7 +10,7 @@ public class Servidor {
         ServerSocket serverSocket = new ServerSocket(4000);
         System.out.println("Servidor iniciado. Aguardando clientes");
 
-        new ConexaoCliente1(serverSocket).start();
-        new ConexaoCliente2(serverSocket).start();
+        new ConexaoCliente(serverSocket).start();
+        new ConexaoCliente(serverSocket).start();       
     }   
 }
