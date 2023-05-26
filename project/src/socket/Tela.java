@@ -28,11 +28,8 @@ public class Tela implements ActionListener {
 	public JButton bt01          = new JButton("Enviar");
 	public JLabel text           = new JLabel();
 	public JTextField msg        = new JTextField();
-	public JLabel text2          = new JLabel("IP:");
 	public JTextField msgIP      = new JTextField();
-	public JLabel text3          = new JLabel("Usuário:");
 	public JTextField msgUsuario = new JTextField();
-	public JLabel text4          = new JLabel("Porta:");
 	public JTextField msgPorta   = new JTextField();
 	public JLabel label          = new JLabel();
 	
@@ -59,7 +56,7 @@ public class Tela implements ActionListener {
 		bt01.setBackground(Color.yellow); 	
 		bt01.addActionListener(this);
 		
-		text.setText("Cliente conectados: 1/3");
+		text.setText("Cliente conectados: 1/2");
 		text.setVisible(true);
 		text.setSize(150, 50);
 		text.setLocation(70, 20);
@@ -67,27 +64,6 @@ public class Tela implements ActionListener {
 		msg.setSize(330, 20);
 		msg.setLocation(70, 370);
 		msg.setVisible(true);
-			
-		text2.setLocation(520, 70);
-		text2.setSize(50, 20);
-		text2.setVisible(true);
-			
-		text3.setLocation(520, 100);
-		text3.setSize(50, 20);
-		text3.setVisible(true);
-				
-		text4.setLocation(520, 130);
-		text4.setSize(50, 20);
-		text4.setVisible(true);
-		
-		msgIP.setSize(100, 20);
-		msgIP.setLocation(570, 70);
-		
-		msgUsuario.setSize(100, 20);
-		msgUsuario.setLocation(570, 100);
-		
-		msgPorta.setSize(100, 20);
-		msgPorta.setLocation(570, 130);
 		
     	janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     	janela.setSize(800, 500);
@@ -105,12 +81,6 @@ public class Tela implements ActionListener {
     	janela.add(bt01);
     	janela.add(text);
     	janela.add(msg);
-    	janela.add(text2);
-    	janela.add(msgIP);
-    	janela.add(text3);
-    	janela.add(msgUsuario);
-    	janela.add(text4);
-    	janela.add(msgPorta);
     	janela.add(label);
     }
 
