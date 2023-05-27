@@ -28,9 +28,6 @@ public class Tela implements ActionListener {
 	public JButton bt01          = new JButton("Enviar");
 	public JLabel text           = new JLabel();
 	public JTextField msg        = new JTextField();
-	public JTextField msgIP      = new JTextField();
-	public JTextField msgUsuario = new JTextField();
-	public JTextField msgPorta   = new JTextField();
 	public JLabel label          = new JLabel();
 	
 	public Tela(Socket cliente) throws IOException {
